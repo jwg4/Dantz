@@ -5,9 +5,9 @@
 class Polyomino {
 public:
 	Polyomino(int w, int h, bool* squares[], std::string name);
-	int width;
-	int height;
+	int width_;
+	int height_;
 	std::vector<std::pair<int, int >> Points(int direction);
-	std::string name;
+	std::string name_;
 };
 
