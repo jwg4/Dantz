@@ -9,5 +9,7 @@ public:
 	int height_;
 	std::vector<std::pair<int, int >> Points(int direction);
 	std::string name_;
+private:
+	std::vector<std::pair<int, int >>* points_;
 };
 
