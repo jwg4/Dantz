@@ -10,5 +10,5 @@ Dantz: $(OBJS)
 
 clean:
 	rm *.o
-
+	rm Dantz
  
