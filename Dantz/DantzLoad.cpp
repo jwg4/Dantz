@@ -10,7 +10,7 @@
 
 int main(int argc, char* argv[])
 {
-	TableFactory* tf = new TableFactory(table, names, 7, 6);
+	TableFactory* tf = new TableFactory(table, names, names.size(), n_rows);
 	TableHeader* th = tf->createTable();
 	th->search(0);
 
