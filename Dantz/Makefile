@@ -1,11 +1,11 @@
 OBJS=DataObject.o Polyomino.o TableFactory.o
 
-all: Dantz
+all: Dantz DantzLoad
 
 Dantz: Dantz.o $(OBJS)
 	g++ Dantz.o $(OBJS) -o Dantz
 
-DantzLoad: DantzLoad.o $(OBJS)
+DantzLoad: DantzLoad.o $(OBJS) DantzLoad.h
 	g++ DantzLoad.o $(OBJS) -o DantzLoad
 
 %.o: %.cpp
