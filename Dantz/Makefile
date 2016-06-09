@@ -20,6 +20,8 @@ DantzLoad.h: SampleDantzLoad.h
 %.o: %.cpp
 	g++ -c --std=c++0x $< -o $@
 
+DantzLoad.o: DantzLoad.h
+
 clean:
 	rm *.o
 	rm Dantz
