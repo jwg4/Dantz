@@ -8,8 +8,8 @@ Dantz_output: Dantz
 DantzLoad_output: DantzLoad
 	./DantzLoad > DantzLoad_output
 
-DantzCSV_output: DantzCSV sample.csv
-	./DantzCSV sample.csv > DantzCSV_output
+DantzCSV_output: DantzCSV rows.txt names.txt
+	./DantzCSV > DantzCSV_output
 
 DantzCSV: DantzCSV.o $(OBJS)
 	g++ DantzCSV.o $(OBJS) -o DantzCSV
