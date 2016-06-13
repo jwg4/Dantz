@@ -2,13 +2,13 @@ OBJS=DataObject.o Polyomino.o TableFactory.o
 
 all: Dantz.output DantzLoad.output DantzCSV.output
 
-Dantz_output: Dantz
+Dantz.output: Dantz
 	./Dantz > Dantz.output
 
-DantzLoad_output: DantzLoad
+DantzLoad.output: DantzLoad
 	./DantzLoad > DantzLoad.output
 
-DantzCSV_output: DantzCSV rows.txt names.txt
+DantzCSV.output: DantzCSV rows.txt names.txt
 	./DantzCSV > DantzCSV.output
 
 DantzCSV: DantzCSV.o $(OBJS)
