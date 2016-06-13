@@ -1,15 +1,15 @@
 OBJS=DataObject.o Polyomino.o TableFactory.o
 
-all: Dantz_output DantzLoad_output DantzCSV_output
+all: Dantz.output DantzLoad.output DantzCSV.output
 
 Dantz_output: Dantz
-	./Dantz > Dantz_output
+	./Dantz > Dantz.output
 
 DantzLoad_output: DantzLoad
-	./DantzLoad > DantzLoad_output
+	./DantzLoad > DantzLoad.output
 
 DantzCSV_output: DantzCSV rows.txt names.txt
-	./DantzCSV > DantzCSV_output
+	./DantzCSV > DantzCSV.output
 
 DantzCSV: DantzCSV.o $(OBJS)
 	g++ DantzCSV.o $(OBJS) -o DantzCSV
