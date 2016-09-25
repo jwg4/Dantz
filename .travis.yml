@@ -1,3 +1,6 @@
+before_install:
+- "sudo apt-get update && sudo apt-get install --no-install-recommends libcppunit-dev"
+
 script:
   - cd Dantz && make
 
