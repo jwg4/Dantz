@@ -1,3 +1,5 @@
+import os
+
 from ctypes import c_int, c_char_p, c_void_p, cdll, POINTER
 
 
@@ -21,6 +23,6 @@ def exact_cover(rows, names):
 
         c_rows[i] = c_row 
 
-    c_dantz = cdll.LoadLibrary("dantz.so")
+    c_dantz = cdll.LoadLibrary(os.path.abspath("dantz.so"))
     result = c_dantz.solve_exact_cover(c_rows, c_names, c_width, c_count)
     return result
