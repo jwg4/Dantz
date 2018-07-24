@@ -1,12 +1,6 @@
 import setuptools
 
 
-dantz_ext = setuptools.Extension(
-    'dantz',
-    sources=['src/DataObject.cpp', 'src/TableFactory.cpp'],
-    headers=['src/DataObject.h', 'src/TableFactory.h']
-)
-
 setuptools.setup(
     name='Dantz',
     author='Jack Grahl',
