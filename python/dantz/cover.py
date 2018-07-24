@@ -10,13 +10,14 @@ def exact_cover(rows, names):
     count = len(rows)
     c_count = c_int(count)
 
-    c_names = (c_char_p * count)()
+    c_names = (c_char_p * width)()
     c_rows = (POINTER(c_bool) * count)()
 
-    for i in range(0, count):
+    for i in range(0, width):
         c_s = c_char_p(names[i])
         c_names[i] = c_s
 
+    for i in range(0, count):
         c_row = (c_bool * width)()
         for j in range(0, width):
             c_row[j] = rows[i][j]
