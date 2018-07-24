@@ -1,19 +1,22 @@
-from ctypes import c_int, c_char_p, c_int_p, cdll
+from ctypes import c_int, c_char_p, c_void_p, cdll, POINTER
 
 
 def exact_cover(rows, names):
-    c_width = c_int(len(rows[0]))
-    c_count = c_int(len(rows))
+    width = len(rows[0])
+    c_width = c_int(width)
+    
+    count = len(rows)
+    c_count = c_int(count)
 
-    c_names = c_char_p('') * c_count
-    c_rows = c_int_p('') * c_count
+    c_names = (c_char_p * count)()
+    c_rows = (POINTER(c_int) * count)()
 
-    for i in range(0, c_count):
+    for i in range(0, count):
         c_s = c_char_p(names[i])
         c_names[i] = c_s
 
-        c_row = c_int(0) * c_width
-        for j in range(0, c_width):
+        c_row = (c_int * width)()
+        for j in range(0, width):
             c_row[j] = rows[i][j]
 
         c_rows[i] = c_row 
