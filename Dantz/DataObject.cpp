@@ -46,6 +46,42 @@ void TableHeader::search(int k){
 	return;
 }
 
+void TableHeader::store_solution(){
+	for (std::vector<DataObject*>::iterator o = O.begin(); o != O.end(); o++){
+                std::vector<std::string>* ss = new std::vector<std::string>();
+		if (*o != NULL){
+                        ss->push_back((*o)->column->name);
+			for (DataObject* r = (*o)->right; r != *o; r = r->right){
+                                ss->push_back(r->column->name);
+			}
+			result.push_back(*ss);
+		}
+	}
+}
+
+void TableHeader::search_store(int k){
+	if (this->right == this) {
+		store_solution();
+		return;
+	}
+	ColumnHeader* c = this->nextColumn();
+	c->cover();
+	O.resize(k+1);
+	for (DataObject* r = c->down; r != c; r = r->down){
+		O[k] = r;
+		for (DataObject* j = r->right; j != r; j = j->right){
+			j->column->cover();
+		}
+		this->search_store(k + 1);
+		r = O[k];
+		for (DataObject* j = r->left; j != r; j = j->left){
+			j->column->uncover();
+		}
+	}
+	c->uncover();
+	return;
+}
+
 ColumnHeader::ColumnHeader(std::string name)
 	: name(name), DataObject(NULL) {
 }

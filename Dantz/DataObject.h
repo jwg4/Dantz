@@ -28,10 +28,13 @@ public:
 
 class TableHeader : public ColumnHeader {
 	void print_solution();
+	void store_solution();
 	std::vector<DataObject*> O;
 	ColumnHeader* nextColumn();
 public:
 	TableHeader();
+        std::vector<std::vector<std::string>> result;
 	void search(int);
+	void search_store(int);
 };
 
