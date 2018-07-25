@@ -1,0 +1,4 @@
+/.eggs/
+Dantz.egg-info/
+*.so
+.pytest_cache/
