@@ -1,4 +1,9 @@
-from fringe_search import points_set, t_search_vectors, build_search_input
+from fringe_search import points_set, t_search_vectors, build_search_input, orient_t
+
+
+def test_orient_t():
+    p = (2, 0)
+    assert set(orient_t(1, p)) == set([(1, 0), (2, 0), (3, 0), (2, 1)])
 
 
 def test_points_set():
