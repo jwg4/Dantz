@@ -1,8 +1,10 @@
 from dantz import exact_cover
 
 
-START_X = [1] + [0] * 12
-END_X = [12, 11, 12, 11, 13, 13, 13, 13, 13, 14, 13, 14, 13]
+START_X = [0] * 12 + [1]
+_END_X = [4, 3, 4, 3, 5, 5, 5, 5, 5, 6, 5, 6, 5]
+WIDTH = 20
+END_X = [ e + WIDTH for e in _END_X ]
 
 
 def generate_points(starts, ends):
