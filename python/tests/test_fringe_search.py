@@ -1,4 +1,4 @@
-from fringe_search import points_set
+from fringe_search import points_set, t_search_vectors
 
 
 def test_points_set():
@@ -12,3 +12,13 @@ def test_points_set():
         ]
     )
     assert points_set(starts, ends) == expected
+
+
+def test_t_search_vectors():
+    points = [
+        (0, 0), (1, 0), (2, 0),
+        (0, 1), (1, 1), (2, 1),
+        (0, 2), (1, 2), (2, 2),
+    ]
+    vectors = list(t_search_vectors(points))
+    assert len(vectors) == 8
