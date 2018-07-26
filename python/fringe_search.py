@@ -38,6 +38,9 @@ def t_search_vectors(points):
 def build_search_input(vectors):
     points = sorted(list(set([ p for v in vectors for p in v ])))
     names = [ str(p) for p in points ]
-    rows = []
+    rows = [
+        [ (1 if p in v else 0) for p in points ]
+        for v in vectors 
+    ]
     return names, rows 
     
