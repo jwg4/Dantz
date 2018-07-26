@@ -47,6 +47,7 @@ void TableHeader::search(int k){
 }
 
 void TableHeader::store_solution(){
+        std::vector<std::vector<std::string>>* myResult = new std::vector<std::vector<std::string>>();
 	for (std::vector<DataObject*>::iterator o = O.begin(); o != O.end(); o++){
                 std::vector<std::string>* ss = new std::vector<std::string>();
 		if (*o != NULL){
@@ -54,9 +55,10 @@ void TableHeader::store_solution(){
 			for (DataObject* r = (*o)->right; r != *o; r = r->right){
                                 ss->push_back(r->column->name);
 			}
-			result.push_back(*ss);
 		}
+                myResult->push_back(*ss);
 	}
+        result.push_back(*myResult);
 }
 
 void TableHeader::search_store(int k){

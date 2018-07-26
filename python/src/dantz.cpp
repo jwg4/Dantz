@@ -20,10 +20,14 @@ PyObject* solve_exact_cover(bool** rows, char** names, int width, int count) {
     th->search_store(0);
 
     PyObject* results = PyList_New(0);
-    for (std::vector<std::vector<std::string>>::iterator it = th->result.begin(); it != th->result.end(); it++) {
+    for (std::vector<std::vector<std::vector<std::string>>>::iterator it = th->result.begin(); it != th->result.end(); it++) {
         PyObject* result = PyList_New(0);
-        for (std::vector<std::string>::iterator jt = it->begin(); jt != it->end(); jt++) {
-            PyList_Append(result, PyString_FromString(jt->c_str()));
+        for (std::vector<std::vector<std::string>>::iterator jt = it->begin(); jt != it->end(); jt++) {
+            PyObject* res_v = PyList_New(0);
+            for (std::vector<std::string>::iterator kt = jt->begin(); kt != jt->end(); kt++) {
+                PyList_Append(res_v, PyString_FromString(kt->c_str()));
+            }
+            PyList_Append(result, res_v);
         }
         PyList_Append(results, result);
     }

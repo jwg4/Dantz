@@ -12,4 +12,6 @@ def test_basic_example():
     ]
     names = ["0", "1", "2", "3", "4", "5", "6"]
     expected = [['2', '4', '5'], ['0', '3'], ['1', '6']]
-    assert sorted(exact_cover(data, names)) == sorted(expected)
+    result = exact_cover(data, names)
+    assert len(result) == 1
+    assert sorted(result[0]) == sorted(expected)

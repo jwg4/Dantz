@@ -33,7 +33,7 @@ class TableHeader : public ColumnHeader {
 	ColumnHeader* nextColumn();
 public:
 	TableHeader();
-        std::vector<std::vector<std::string>> result;
+        std::vector<std::vector<std::vector<std::string>>> result;
 	void search(int);
 	void search_store(int);
 };
