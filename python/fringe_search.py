@@ -1,3 +1,6 @@
+from dantz import exact_cover
+
+
 START_X = [1] + [0] * 12
 END_X = [12, 11, 12, 11, 13, 13, 13, 13, 13, 14, 13, 14, 13]
 
@@ -44,4 +47,11 @@ def build_search_input(vectors):
         for v in vectors 
     ]
     return names, rows 
-    
+
+
+if __name__ == '__main__':
+    points = points_set(START_X, END_X)
+    vectors = t_search_vectors(points)
+    names, rows = build_search_input(vectors)
+    result = exact_cover(rows, names)
+    print(result)
