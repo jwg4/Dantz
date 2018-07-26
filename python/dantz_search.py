@@ -17,9 +17,18 @@ def build_search_input_w_gaps(vectors, points, n_gaps):
     vectors = list(vectors)
     names = [ str(p) for p in points ]
     rows = [
-        [ (1 if p in v else 0) for p in points ]
+        [ (1 if p in v else 0) for p in points ] + [0] * n_gaps
         for v in vectors 
     ]
+
+    np = len(points)
+    n = n_gaps + np
+    for g in range(0, n_gaps):
+        for p in range(0, np):
+            row = [0] * n
+            row[p] = 1
+            row[np + g] = 1
+            rows.append(row)
     return names, rows 
 
 
