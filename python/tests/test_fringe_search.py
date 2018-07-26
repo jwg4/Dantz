@@ -99,4 +99,4 @@ def test_t_tetromino_tiling():
     END_X = [12, 11, 12, 11, 13, 13, 13, 13, 13, 14, 13, 14, 13]
     points = points_set(START_X, END_X)
     result = t_tetromino_tiling(points)
-    assert len(result) == 41
+    assert len(result) == 10
