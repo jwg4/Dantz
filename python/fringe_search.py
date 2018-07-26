@@ -33,3 +33,11 @@ def t_search_vectors(points):
             tetromino = orient_t(o, p)
             if all(p_ in points for p_ in tetromino):
                 yield tetromino
+
+
+def build_search_input(vectors):
+    points = sorted(list(set([ p for v in vectors for p in v ])))
+    names = [ str(p) for p in points ]
+    rows = []
+    return names, rows 
+    
