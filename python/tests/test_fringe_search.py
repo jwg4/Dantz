@@ -40,3 +40,17 @@ def test_build_search_input():
         [1, 0, 0, 1, 1, 1]
     ]
     assert rows == expected_rows
+
+
+def test_build_search_input_with_gtor():
+    vector_list = [
+        [(0, 0), (0, 1), (0, 2), (1, 0)],
+        [(0, 0), (1, 0), (1, 1), (2, 0)]
+    ]
+    vectors = ( v for v in vector_list )
+    names, rows = build_search_input(vectors)
+    expected_rows = [
+        [1, 1, 1, 1, 0, 0],
+        [1, 0, 0, 1, 1, 1]
+    ]
+    assert rows == expected_rows
