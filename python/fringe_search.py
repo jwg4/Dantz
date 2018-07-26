@@ -49,9 +49,14 @@ def build_search_input(vectors):
     return names, rows 
 
 
-if __name__ == '__main__':
-    points = points_set(START_X, END_X)
+def t_tetromino_tiling(points):
     vectors = t_search_vectors(points)
     names, rows = build_search_input(vectors)
     result = exact_cover(rows, names)
+    return result
+
+
+if __name__ == '__main__':
+    points = points_set(START_X, END_X)
+    result = t_tetromino_tiling(points)
     print(result)

@@ -1,4 +1,6 @@
-from fringe_search import points_set, t_search_vectors, build_search_input, orient_t
+from fringe_search import points_set, t_search_vectors
+from fringe_search import build_search_input, orient_t
+from fringe_search import t_tetromino_tiling
 
 
 def test_orient_t():
@@ -91,3 +93,10 @@ def test_build_search_input_with_gtor():
         [1, 0, 0, 1, 1, 1]
     ]
     assert rows == expected_rows
+
+def test_t_tetromino_tiling():
+    START_X = [0] * 5 + [1] + [0] * 7
+    END_X = [12, 11, 12, 11, 13, 13, 13, 13, 13, 14, 13, 14, 13]
+    points = points_set(START_X, END_X)
+    result = t_tetromino_tiling(points)
+    assert len(result) == 41
