@@ -24,6 +24,7 @@ def build_search_input_w_gaps(vectors, points, n_gaps):
     np = len(points)
     n = n_gaps + np
     for g in range(0, n_gaps):
+        names.append("mono_%d" % (g, ))
         for p in range(0, np):
             row = [0] * n
             row[p] = 1
