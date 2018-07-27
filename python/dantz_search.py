@@ -33,8 +33,12 @@ def build_search_input_w_gaps(vectors, points, n_gaps):
     return names, rows 
 
 
-def t_tetromino_tiling(points):
+def t_tetromino_tiling(points, n_gaps=0):
     vectors = t_search_vectors(points)
-    names, rows = build_search_input(vectors)
+
+    if n_gaps:
+        names, rows = build_search_input_w_gaps(vectors, points, n_gaps)
+    else:
+        names, rows = build_search_input(vectors)
     result = exact_cover(rows, names)
     return result
