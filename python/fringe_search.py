@@ -18,6 +18,8 @@ def points_set(starts, ends):
 
 
 if __name__ == '__main__':
-    points = points_set(START_X, END_X)
-    result = t_tetromino_tiling(points)
-    print(result)
+    for N in range(0, 10):
+        FLAT_END = [4 * N + 2] * 13
+        points = points_set(START_X, FLAT_END)
+        result = t_tetromino_tiling(points, n_gaps=1)
+        print(N, result)
