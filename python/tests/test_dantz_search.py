@@ -48,7 +48,8 @@ def test_build_search_input_w_gaps():
     names, rows = build_search_input_w_gaps(vectors, points, 2)
     expected_names = [
         "(0, 0)", "(0, 1)", "(0, 2)",
-        "(1, 0)", "(1, 1)", "(2, 0)"
+        "(1, 0)", "(1, 1)", "(2, 0)",
+        "mono_0", "mono_1"
     ]
     assert names == expected_names
     expected_rows = [
