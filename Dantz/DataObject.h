@@ -22,6 +22,7 @@ public:
 	ColumnHeader(std::string);
 	std::string name;
 	int size;
+        int countRows();
 	void cover();
 	void uncover();
 };

@@ -8,7 +8,16 @@ TableHeader::TableHeader()
 }
 
 ColumnHeader* TableHeader::nextColumn(){
-	return (ColumnHeader*)this->right;
+        ColumnHeader* bestColumn;
+        int min = -1;
+        for (DataObject* r = this->right; r != this; r = r->right){
+            int m = ((ColumnHeader*)r)->countRows();
+            if (min == -1 || m < min) {
+                min = m;
+                bestColumn = (ColumnHeader*)r;
+            }
+        }
+	return bestColumn;
 }
 
 void TableHeader::print_solution(){
@@ -88,6 +97,13 @@ ColumnHeader::ColumnHeader(std::string name)
 	: name(name), DataObject(NULL) {
 }
 
+int ColumnHeader::countRows(){
+        int c = 0;
+	for (DataObject* i = this->down; i != this; i = i->down) {
+            c++;
+	}
+        return c;
+}
 void ColumnHeader::cover(){
 	left->right = this->right;
 	right->left = this->left;
