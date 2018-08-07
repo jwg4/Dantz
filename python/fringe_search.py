@@ -24,7 +24,7 @@ def points_to_skip(n):
 
 
 if __name__ == '__main__':
-    for N in range(2, 5):
+    for N in range(2, 10):
         END_X = [ e + N * 4 for e in _END_X ]
         for skip in points_to_skip(N + 1):
             points = points_set(START_X, END_X)
